@@ -1,0 +1,6 @@
+.allproducts {
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 2rem;
+    
+}
