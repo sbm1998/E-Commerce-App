@@ -1,17 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {useDispatch} from 'react-redux'
+import {addToCart} from '../../Actions/allActions'
+
 
 const ProductCard = (props) => {
     const { title, price, image, id } = props;
+    const dispatch=useDispatch();
     return (
     <div className="card" style={{width: "18rem"}}>
     <Link to={`/product/${id}`}>
     <img className="card-img-top" src={image} alt="Card image cap" />
     <div className="card-body">
-    <h5 className="card-title">{title}</h5>
-    <h4 className="card-price">{price}</h4>
+    <h5 className="card-title"><b>Title :</b>{title}</h5>
+    <h4 className="card-price"><b>Price :</b>{price}</h4>
     </div>
     </Link>
+    <button type="button" class="btn btn-secondary">BuyNow</button><br></br> <br></br>
+    <button type="button" class="btn btn-secondary" onClick={() => dispatch(addToCart(id))}>Add To Cart</button>
   </div>)
 }
 

@@ -1,1 +1,5 @@
 export const SHOW_PRODUCT="SHOW_PRODUCT"
+export const VIEW_PRODUCT="VIEW_PRODUCT"
+export const FILTER_SEARCH="FILTER_SEARCH"
+export const SIGN_IN="SIGN_IN"
+export const ADD_TO_CART="ADD_TO_CART"
