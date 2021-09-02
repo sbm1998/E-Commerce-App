@@ -2,7 +2,8 @@ import {SHOW_PRODUCT,
     VIEW_PRODUCT,
     FILTER_SEARCH,
     SIGN_IN,
-    ADD_TO_CART
+    ADD_TO_CART,
+    BUY_NOW,
 
 }
 from './index';
@@ -22,12 +23,21 @@ export const filterSearch=(payload)=>({
     payload,
 })
 
-export const signIn=(payload)=>({
+export const signIn=(payload)=>{
+    localStorage.setItem("token",payload.token)
+    console.log(payload.token)
+    return{
     type:SIGN_IN,
     payload
-})
+}
+}
 
 export const addToCart=(id)=>({
     type:ADD_TO_CART,
+    id
+})
+
+export const buyProduct=(id)=>({
+    type:BUY_NOW,
     id
 })

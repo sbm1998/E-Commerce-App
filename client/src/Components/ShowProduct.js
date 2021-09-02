@@ -48,6 +48,7 @@ const ShowProduct = () => {
         <div>
             
             {error && <h3>{error}</h3>}
+            <button onClick={() =>{history.push("/");}}>Home</button><br></br>
             <button onClick={() =>{history.push("/AddCart");}}>CheckOut Page</button>
             <h2>Filter User Choice</h2>
             <form onSubmit={handleSubmit}>

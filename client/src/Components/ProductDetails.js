@@ -22,7 +22,7 @@ const ProductDetails = () => {
     console.log(records);
     return (
         <div>
-           <button onClick={() =>{history.push("/");}}>Home</button>
+           <button onClick={() =>{history.push("/show");}}>Home</button>
           <center>
           {Object.keys(records).length === 0 ? (
             <div>...Loading</div>
@@ -33,6 +33,8 @@ const ProductDetails = () => {
             <div className="card-body">
             <h5 className="card-title"><b>Title:</b>{title}</h5>
             <h4 className="card-price">Price :{price}</h4>
+            <p><b>Category :</b>{category}</p>
+            <p><b>Description :</b>{description}</p>
             </div>
           </div>
           )}

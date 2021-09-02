@@ -14,7 +14,6 @@ const LoginUsers=()=>{
     let dispatch=useDispatch();
     let history=useHistory();
 
-    console.log(loginData);
     const {username,password}=loginData;
 
     
@@ -29,7 +28,7 @@ const LoginUsers=()=>{
         }
         else{
             dispatch(requestUserSignIn(loginData));
-            history.push("/");
+            history.push("/show");
             setError("");
     }
 }

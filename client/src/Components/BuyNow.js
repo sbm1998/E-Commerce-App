@@ -1,16 +1,17 @@
 import react from 'react';
+//import {useEffect} from 'react'
 import {useSelector} from 'react-redux'
 import { useHistory } from "react-router-dom";
 import ProductCard from '../SharedComponents/ProductCard/ProductCard'
 import "./ShowProducts.css";
 
 
- const AddCart=()=>{
+ const BuyNow=()=>{
    let history=useHistory();
 
     const records=useSelector((state)=>state.product.productData)
-    const cart = useSelector((state)=>state.product.cartItems);
-    const cartdata = records.filter(item => cart.includes(item.id) )
+    const buyCart = useSelector((state)=>state.product.buyNow);
+    const buydata = records.filter(item => buyCart.includes(item.id) )
 
     const handleLogout=()=>{
       localStorage.removeItem("token"); 
@@ -22,9 +23,9 @@ import "./ShowProducts.css";
        <h1>User Cart Added Items</h1>
        <button onClick={handleLogout}>Logout</button><br /><br />
         <div className="allproducts">
-             {cartdata.map(item => <ProductCard {...item}  />)}
+             {buydata.map(item => <ProductCard {...item}  />)}
             </div>
             </>
     )
 }
-export default AddCart
+export default BuyNow
