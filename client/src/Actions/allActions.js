@@ -25,7 +25,6 @@ export const filterSearch=(payload)=>({
 
 export const signIn=(payload)=>{
     localStorage.setItem("token",payload.token)
-    console.log(payload.token)
     return{
     type:SIGN_IN,
     payload

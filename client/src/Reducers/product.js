@@ -3,8 +3,8 @@ import {SHOW_PRODUCT,
     FILTER_SEARCH,
     SIGN_IN,
     ADD_TO_CART,
-    BUY_NOW
-
+    BUY_NOW,
+    SIGN_OUT
 
 }
 from '../Actions/index';
@@ -40,6 +40,11 @@ export default function product(state=initialState,action){
             return{
                 ...state,
                 token:action.payload.token
+            }
+            case SIGN_OUT:
+            return{
+                ...state,
+                token: null
             }
         case ADD_TO_CART:
         return{

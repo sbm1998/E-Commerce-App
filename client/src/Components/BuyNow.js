@@ -23,7 +23,7 @@ import "./ShowProducts.css";
        <h1>User Cart Added Items</h1>
        <button onClick={handleLogout}>Logout</button><br /><br />
         <div className="allproducts">
-             {buydata.map(item => <ProductCard {...item}  />)}
+             {buydata.map(item => <ProductCard {...item} isButtonsRequiredCart={false} isButtonsRequiredBuy={false}  />)}
             </div>
             </>
     )

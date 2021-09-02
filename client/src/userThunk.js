@@ -48,8 +48,7 @@ export const requestUserSignIn = (logindata) => {
     return async(dispatch)=>{
     try{
     const signInData=await request.post('/auth/login', logindata);
-    console.log(signInData.data)
-    
+   
     dispatch(signIn(signInData.data));
   } catch (error) {
     console.log(error);

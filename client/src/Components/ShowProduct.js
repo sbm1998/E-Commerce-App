@@ -9,6 +9,7 @@ import "./ShowProducts.css";
 const ShowProduct = () => {
     const dispatch=useDispatch();
     const records = useSelector((state)=>state.product.productData);
+    const token = useSelector((state)=>state.product.token);
     const cart = useSelector((state)=>state.product.cartItems);
        let history=useHistory();
     
@@ -21,7 +22,6 @@ const ShowProduct = () => {
     })
     const {limit,category,sort}=state;
 
-    console.log(category);
 
     const handleAddFilter=(e)=>{
         let {name,value}=e.target;
@@ -34,7 +34,6 @@ const ShowProduct = () => {
             setError("Fill All the Value First");
         }
         else{
-            console.log(state.limit,state.category,state.sort)
             dispatch(requestFilterSearch(state));
             setError("");
     }
@@ -43,6 +42,16 @@ const ShowProduct = () => {
         dispatch(requestGetProduct())
     },[dispatch]);
     
+const handleLoginLogout = () => {
+    if (token) {
+        localStorage.removeItem('token');
+        dispatch({
+            type: "SIGN_OUT"
+        });
+    } else {
+        history.push('/login');
+    }
+}
 
     return (
         <div>
@@ -50,6 +59,7 @@ const ShowProduct = () => {
             {error && <h3>{error}</h3>}
             <button onClick={() =>{history.push("/");}}>Home</button><br></br>
             <button onClick={() =>{history.push("/AddCart");}}>CheckOut Page</button>
+            <button onClick={handleLoginLogout}>{token ? "Logout" : "Login"}</button>
             <h2>Filter User Choice</h2>
             <form onSubmit={handleSubmit}>
             <label for="Limit">Limit :</label>

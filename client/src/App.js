@@ -22,7 +22,6 @@ function App() {
         <Route exact path="/login" component={LoginUsers} />
         <PrivateRoute exact path="/buy" component={BuyNow} />
         <PrivateRoute exact path="/AddCart" component={AddCart}/>
-        {/* <Redirect to="/" /> */}
       </Switch>
       </BrowserRouter>
     </div>
